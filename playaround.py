@@ -10,8 +10,13 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
         message = "Hello, world!"
         self.wfile.write(bytes(message, "utf8"))
-    
-def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=8080):
+
+
+def run(
+    server_class=HTTPServer,
+    handler_class=SimpleHTTPRequestHandler,
+    port=8080
+):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     print(f'Starting httpd server on port {port}')
@@ -20,4 +25,3 @@ def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=80
 
 if __name__ == '__main__':
     run()
-
